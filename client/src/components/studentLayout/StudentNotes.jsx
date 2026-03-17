@@ -5,7 +5,7 @@ export default function StudentNotes() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/notes")
+    axios.get("https://student-management-system-uidc.onrender.com/api/notes")
       .then(res => setNotes(res.data));
   }, []);
 
@@ -24,7 +24,7 @@ export default function StudentNotes() {
 
             <div style={btnRow}>
               <a
-                href={`http://localhost:8000/uploads/${n.file}`}
+                href={`https://student-management-system-uidc.onrender.com/uploads/${n.file}`}
                 target="_blank"
                 rel="noreferrer"
                 style={openBtn}
@@ -33,7 +33,7 @@ export default function StudentNotes() {
               </a>
 
               <a
-                href={`http://localhost:8000/uploads/${n.file}`}
+                href={`https://student-management-system-uidc.onrender.com/uploads/${n.file}`}
                 download
                 style={downloadBtn}
               >
