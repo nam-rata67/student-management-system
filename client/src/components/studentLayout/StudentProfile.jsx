@@ -10,7 +10,7 @@ import {
   FaCamera,
 } from "react-icons/fa";
 
-const API_BASE = "http://localhost:8000/api/admin";
+const API_BASE = "https://student-management-system-uidc.onrender.com/api/admin";
 
 export default function AdminProfile() {
   const [profile, setProfile] = useState(null);
