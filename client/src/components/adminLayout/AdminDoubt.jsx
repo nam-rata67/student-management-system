@@ -7,7 +7,7 @@ function AdminDoubt() {
   const [replyFile, setReplyFile] = useState({});
 
   const loadDoubts = async () => {
-    const res = await axios.get("http://localhost:8000/api/doubts/all");
+    const res = await axios.get("https://student-management-system-uidc.onrender.com/api/doubts/all");
     setDoubts(res.data);
   };
 
@@ -35,7 +35,7 @@ function AdminDoubt() {
 
   const deleteDoubt = async (id) => {
     if (!window.confirm("Delete this doubt?")) return;
-    await axios.delete(`http://localhost:8000/api/doubts/${id}`);
+    await axios.delete(`https://student-management-system-uidc.onrender.com/api/doubts/${id}`);
     loadDoubts();
   };
 
@@ -57,7 +57,7 @@ function AdminDoubt() {
           <p><b>Status:</b> {d.status}</p>
 
           {d.studentFile && (
-            <a href={`http://localhost:8000/uploads/${d.studentFile}`} target="_blank" rel="noreferrer">
+            <a href={`https://student-management-system-uidc.onrender.com/uploads/${d.studentFile}`} target="_blank" rel="noreferrer">
               📎 Student File
             </a>
           )}
@@ -101,7 +101,7 @@ function AdminDoubt() {
               </p>
 
               {d.adminFile && (
-                <a href={`http://localhost:8000/uploads/${d.adminFile}`} target="_blank" rel="noreferrer">
+                <a href={`https://student-management-system-uidc.onrender.com/uploads/${d.adminFile}`} target="_blank" rel="noreferrer">
                   📂 Admin File
                 </a>
               )}
