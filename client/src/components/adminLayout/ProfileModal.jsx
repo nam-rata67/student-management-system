@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, Button, Form, Alert, Spinner } from "react-bootstrap";
 import { FaUser, FaEnvelope, FaPhone, FaBook, FaCalendarAlt } from "react-icons/fa";
 
-const API_BASE = "http://localhost:8000/api/users";
+const API_BASE = "https://student-management-system-uidc.onrender.com/api/users";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
