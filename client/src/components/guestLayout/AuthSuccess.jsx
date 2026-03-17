@@ -21,7 +21,7 @@ const AuthSuccess = () => {
       localStorage.setItem("token", accessToken);
 
       try {
-        const res = await axios.get("http://localhost:8000/api/auth/me", {
+        const res = await axios.get("https://student-management-system-uidc.onrender.com/api/auth/me", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
