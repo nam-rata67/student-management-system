@@ -16,7 +16,7 @@ export default function AdminStudentRecord() {
 
   const submit = async () => {
     try {
-      await axios.post("http://localhost:8000/api/student-record/add", form);
+      await axios.post("https://student-management-system-uidc.onrender.com/api/student-record/add", form);
       alert("Record saved successfully");
     } catch {
       alert("Error saving record");
