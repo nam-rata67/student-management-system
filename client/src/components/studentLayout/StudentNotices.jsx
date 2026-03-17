@@ -6,7 +6,7 @@ export default function StudentNotices() {
   const [notices, setNotices] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/notices")
+    axios.get("https://student-management-system-uidc.onrender.com/api/notices")
       .then(res => setNotices(res.data));
   }, []);
 
