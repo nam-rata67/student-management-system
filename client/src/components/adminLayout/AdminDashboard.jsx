@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:8000/api/users");
+      const res = await axios.get("https://student-management-system-uidc.onrender.com/api/users");
       setStudents(res.data || []);
     } catch (err) {
       console.log(err);
@@ -28,13 +28,13 @@ export default function AdminDashboard() {
   }, []);
 
   const approveStudent = async (id) => {
-    await axios.put(`http://localhost:8000/api/users/approve/${id}`);
+    await axios.put(`https://student-management-system-uidc.onrender.com/api/users/approve/${id}`);
     fetchStudents();
   };
 
   const deleteStudent = async (id) => {
     if (window.confirm("Delete this student?")) {
-      await axios.delete(`http://localhost:8000/api/users/${id}`);
+      await axios.delete(`https://student-management-system-uidc.onrender.com/api/users/${id}`);
       fetchStudents();
     }
   };
@@ -42,7 +42,7 @@ export default function AdminDashboard() {
   const addStudent = async () => {
     if (!newStudent.name || !newStudent.email || !newStudent.password) return;
 
-    await axios.post("http://localhost:8000/api/users/register", {
+    await axios.post("https://student-management-system-uidc.onrender.com/api/users/register", {
       ...newStudent,
       status: "approved",
     });
