@@ -136,7 +136,7 @@ Sign In
 <motion.button
 whileHover={{scale:1.02}}
 style={styles.googleBtn}
-onClick={()=>window.open("http://localhost:8000/api/auth/google","_self")}
+onClick={()=>window.open("https://student-management-system-uidc.onrender.com/api/auth/google","_self")}
 >
 
 <img
