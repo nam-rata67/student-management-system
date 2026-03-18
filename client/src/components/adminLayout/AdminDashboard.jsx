@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://student-management-system-uidc.onrender.com/api/users");
+      const res = await axios.get("https://student-management-system-using-mern-in35.onrender.com/api/users");
       setStudents(res.data || []);
     } catch (err) {
       console.log(err);
