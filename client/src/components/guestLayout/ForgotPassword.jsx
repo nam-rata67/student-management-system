@@ -92,7 +92,7 @@ function ForgotPassword() {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://student-management-system-uidc.onrender.com/api/users/forgot-password", {
+      const res = await axios.post("https://student-management-system-using-mern-in35.onrender.com/api/users/forgot-password", {
         email,
       });
 
