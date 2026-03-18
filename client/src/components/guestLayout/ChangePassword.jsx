@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const API_BASE = "https://student-management-system-uidc.onrender.com/api/users";
+const API_BASE = "https://student-management-system-using-mern-in35.onrender.com/api/users";
 
 export default class AdminChangePassword extends React.Component {
   state = {
