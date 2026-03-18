@@ -23,7 +23,7 @@ const AuthSuccess = () => {
 
         // ✅ user fetch (backend se)
         const res = await axios.get(
-          "https://student-management-system-2-umvq.onrender.com/api/auth/me",
+          "https://student-management-system-using-mern-in35.onrender.com/api/auth/me",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
