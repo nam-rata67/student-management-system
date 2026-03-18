@@ -25,8 +25,9 @@ const Login = () => {
     setMessage("");
 
     try {
+      // ✅ BACKEND URL FIXED
       const res = await axios.post(
-        "https://student-management-system-2-umvq.onrender.com/api/users/login",
+        "https://student-management-system-uidc.onrender.com/api/users/login",
         formData
       );
 
@@ -126,7 +127,7 @@ const Login = () => {
           style={styles.googleBtn}
           onClick={() =>
             window.open(
-              "https://student-management-system-2-umvq.onrender.com/api/auth/google",
+              "https://student-management-system-uidc.onrender.com/api/auth/google",
               "_self"
             )
           }
@@ -323,3 +324,12 @@ const loader = {
     animation: "spin 1s linear infinite",
   },
 };
+
+/* spinner animation */
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}`;
+document.head.appendChild(style);
