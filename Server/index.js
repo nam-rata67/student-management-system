@@ -22,7 +22,7 @@ const app = express();
 // ✅ FIXED CORS
 app.use(
   cors({
-    origin: "https://student-management-system-2-umvq.onrender.com",
+    origin: "https://student-management-system-sslt.onrender.com",
     credentials: true,
   })
 );
