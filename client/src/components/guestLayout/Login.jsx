@@ -126,10 +126,9 @@ const Login = () => {
           whileHover={{ scale: 1.02 }}
           style={styles.googleBtn}
           onClick={() =>
-            window.open(
-              "https://student-management-system-using-mern-in35.onrender.com/api/auth/google",
-              "_self"
-            )
+            
+              window.open(`${process.env.REACT_APP_API_URL}/auth/google`, "_self")
+            
           }
         >
           <img
