@@ -26,7 +26,7 @@ const Register = () => {
     setMessage("");
 
     try {
-      await axios.post("https://student-management-system-uidc.onrender.com/api/users/register", formData);
+      await axios.post("https://student-management-system-using-mern-in35.onrender.com/api/users/register", formData);
       setMessage("Registration successful. Wait for admin approval.");
 
       setFormData({
