@@ -53,7 +53,7 @@ function App() {
           <Route path="profile" element={<AdminProfile/>} />
 
             <Route path="notices" element={<AdminNotices />} />   {/* ✅ ADD THIS */}
-            <Route path="/admin/doubts" element={<AdminDoubt />} />
+            <Route path="doubts" element={<AdminDoubt />} />
          <Route path="change-password" element={<AdminChangePassword />} />  {/* admin password page */}
            <Route path="settings" element={<AdminSettings />} />
        
