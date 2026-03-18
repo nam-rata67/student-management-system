@@ -7,7 +7,7 @@ export default function AdminNotes() {
   const [notes, setNotes] = useState([]);
 
   const fetchNotes = async () => {
-    const res = await axios.get("https://student-management-system-uidc.onrender.com/api/notes");
+    const res = await axios.get("https://student-management-system-using-mern-in35.onrender.com/api/notes");
     setNotes(res.data);
   };
 
@@ -25,7 +25,7 @@ export default function AdminNotes() {
     formData.append("title", title);
     formData.append("file", file);
 
-    await axios.post("https://student-management-system-uidc.onrender.com/api/notes/add", formData);
+    await axios.post("https://student-management-system-using-mern-in35.onrender.com/api/notes/add", formData);
     alert("✅ Note Uploaded Successfully");
 
     setTitle("");
@@ -35,7 +35,7 @@ export default function AdminNotes() {
 
   const del = async (id) => {
     if (!window.confirm("Delete this note?")) return;
-    await axios.delete(`https://student-management-system-uidc.onrender.com/api/notes/${id}`);
+    await axios.delete(`https://student-management-system-using-mern-in35.onrender.com/api/notes/${id}`);
     fetchNotes();
   };
 
@@ -82,7 +82,7 @@ export default function AdminNotes() {
 
               <div style={btnRow}>
                 <a
-                  href={`https://student-management-system-uidc.onrender.com/uploads/${n.file}`}
+                  href={`https://student-management-system-using-mern-in35.onrender.com/uploads/${n.file}`}
                   target="_blank"
                   rel="noreferrer"
                   style={viewBtn}
