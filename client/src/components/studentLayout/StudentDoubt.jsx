@@ -11,7 +11,7 @@ function StudentDoubt() {
   const student = JSON.parse(localStorage.getItem("user"));
 
   const loadDoubts = async () => {
-    const res = await axios.get("https://student-management-system-uidc.onrender.com/api/doubts/all");
+    const res = await axios.get("https://student-management-system-using-mern-in35.onrender.com/api/doubts/all");
     const myDoubts = res.data.filter(
       (d) => d.studentName === student.name
     );
@@ -31,7 +31,7 @@ function StudentDoubt() {
     formData.append("doubt", doubt);
     if (file) formData.append("studentFile", file);
 
-    await axios.post("https://student-management-system-uidc.onrender.com/api/doubts", formData);
+    await axios.post("https://student-management-system-using-mern-in35.onrender.com/api/doubts", formData);
 
     setSubject("");
     setDoubt("");
@@ -40,7 +40,7 @@ function StudentDoubt() {
   };
 
   const sendFeedback = async (id, emoji) => {
-    await axios.post(`https://student-management-system-uidc.onrender.com/api/doubts/feedback/${id}`, {
+    await axios.post(`https://student-management-system-using-mern-in35.onrender.com/api/doubts/feedback/${id}`, {
       emoji,
     });
     loadDoubts();
@@ -90,7 +90,7 @@ function StudentDoubt() {
                 <b style={styles.doubtSubject}>{d.subject}</b>
                 {d.studentFile && (
                   <a
-                    href={`https://student-management-system-uidc.onrender.com/uploads/${d.studentFile}`}
+                    href={`https://student-management-system-using-mern-in35.onrender.com/uploads/${d.studentFile}`}
                     target="_blank"
                     rel="noreferrer"
                     style={styles.fileLink}
@@ -109,7 +109,7 @@ function StudentDoubt() {
                   {d.adminFile && (
                     <div>
                       <a
-                        href={`https://student-management-system-uidc.onrender.com/uploads/${d.adminFile}`}
+                        href={`https://student-management-system-using-mern-in35.onrender.com/uploads/${d.adminFile}`}
                         target="_blank"
                         rel="noreferrer"
                         style={styles.fileLink}
