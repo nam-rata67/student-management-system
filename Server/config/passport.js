@@ -7,7 +7,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL:"https://student-management-system-2-umvq.onrender.com/api/auth/google/callback",
+      callbackURL:"https://student-management-system-uidc.onrender.com/api/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, cb) => {
       try {
