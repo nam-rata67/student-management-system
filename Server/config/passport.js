@@ -29,12 +29,12 @@ router.get(
 
       // 🔥 IMPORTANT LINE (FRONTEND REDIRECT)
       res.redirect(
-        `https://student-management-system-2-umvq.onrender.com/auth-success?token=${token}`
+        `https://student-management-system-sslt.onrender.com/auth-success?token=${token}`
       );
 
     } catch (error) {
       console.error(error);
-      res.redirect("https://student-management-system-2-umvq.onrender.com/login");
+      res.redirect("https://student-management-system-sslt.onrender.com/login");
     }
   }
 );
