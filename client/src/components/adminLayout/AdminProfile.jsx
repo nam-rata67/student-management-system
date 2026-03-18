@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
-const API_BASE = "https://student-management-system-uidc.onrender.com/api/admin";
+const API_BASE = "https://student-management-system-using-mern-in35.onrender.com/api/admin";
 
 export default function AdminProfile() {
   const [profile, setProfile] = useState(null);
