@@ -7,7 +7,7 @@ export default function AdminNotices() {
   const [notices, setNotices] = useState([]);
 
   const fetchNotices = async () => {
-    const res = await axios.get("https://student-management-system-uidc.onrender.com/api/notices");
+    const res = await axios.get("https://student-management-system-using-mern-in35.onrender.com/api/notices");
     setNotices(res.data.reverse());
   };
 
@@ -17,13 +17,13 @@ export default function AdminNotices() {
 
   const addNotice = async () => {
     if (!text.trim()) return;
-    await axios.post("https://student-management-system-uidc.onrender.com/api/notices", { text });
+    await axios.post("https://student-management-system-using-mern-in35.onrender.com/api/notices", { text });
     setText("");
     fetchNotices();
   };
 
   const deleteNotice = async (id) => {
-    await axios.delete(`https://student-management-system-uidc.onrender.com/api/notices/${id}`);
+    await axios.delete(`https://student-management-system-using-mern-in35.onrender.com/api/notices/${id}`);
     fetchNotices();
   };
 
