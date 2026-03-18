@@ -27,7 +27,7 @@ const Login = () => {
     try {
       // ✅ BACKEND URL FIXED
       const res = await axios.post(
-        "https://student-management-system-uidc.onrender.com/api/users/login",
+        "https://student-management-system-using-mern-in35.onrender.com/api/users/login",
         formData
       );
 
@@ -127,7 +127,7 @@ const Login = () => {
           style={styles.googleBtn}
           onClick={() =>
             window.open(
-              "https://student-management-system-uidc.onrender.com/api/auth/google",
+              "https://student-management-system-using-mern-in35.onrender.com/api/auth/google",
               "_self"
             )
           }
