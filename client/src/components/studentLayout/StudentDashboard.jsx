@@ -18,7 +18,7 @@ export default function StudentDashboard() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://student-management-system-uidc.onrender.com/api/student-record/email/${email}`
+          `https://student-management-system-using-mern-in35.onrender.com/api/student-record/email/${email}`
         );
         if (res.data && Object.keys(res.data).length > 0) {
           setRecord(res.data);
