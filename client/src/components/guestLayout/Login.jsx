@@ -127,7 +127,7 @@ const Login = () => {
           style={styles.googleBtn}
           onClick={() =>
             
-              window.open(`${process.env.REACT_APP_API_URL}/auth/google`, "_self")
+             window.open(`${process.env.REACT_APP_API_URL}/google`, "_self")
             
           }
         >
