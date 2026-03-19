@@ -25,7 +25,6 @@ const Login = () => {
     setMessage("");
 
     try {
-      // ✅ BACKEND URL FIXED
       const res = await axios.post(
         "https://student-management-system-using-mern-in35.onrender.com/api/users/login",
         formData
@@ -114,6 +113,7 @@ const Login = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
             style={styles.loginBtn}
+            type="submit"
           >
             Sign In
           </motion.button>
@@ -121,18 +121,16 @@ const Login = () => {
 
         <div style={styles.divider}>OR</div>
 
-        {/* ✅ GOOGLE LOGIN FIXED */}
+        {/* ✅ GOOGLE LOGIN WORKING */}
         <motion.button
           whileHover={{ scale: 1.02 }}
           style={styles.googleBtn}
-          onClick={() =>
-            
-          window.open(
-          "https://student-management-system-sslt.onrender.com/api/auth/google",
-          "_self"
-         );
-            
-          }
+          onClick={() => {
+            window.open(
+              "https://student-management-system-sslt.onrender.com/api/auth/google",
+              "_self"
+            );
+          }}
         >
           <img
             src="https://developers.google.com/identity/images/g-logo.png"
