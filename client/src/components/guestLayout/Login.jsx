@@ -127,7 +127,10 @@ const Login = () => {
           style={styles.googleBtn}
           onClick={() =>
             
-             window.open(`${process.env.REACT_APP_API_URL}/google`, "_self")
+          window.open(
+          "https://student-management-system-sslt.onrender.com/api/auth/google",
+          "_self"
+         );
             
           }
         >
