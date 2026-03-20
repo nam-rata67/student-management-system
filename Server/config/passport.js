@@ -32,7 +32,7 @@ passport.use(
           googleId: profile.id,
           avatar: profile.photos[0].value,
           role: isAdmin ? "admin" : "user",
-          status: "approved",
+          status: "pending",
         });
 
         return cb(null, user);
