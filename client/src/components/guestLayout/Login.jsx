@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // ✅ updated
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -14,6 +14,16 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  // ✅ ADDED (Google not approved error handling)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+
+    if (error === "not_approved") {
+      setMessage("⛔ Admin approval pending");
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -121,7 +131,7 @@ const Login = () => {
 
         <div style={styles.divider}>OR</div>
 
-        {/* ✅ GOOGLE LOGIN WORKING */}
+        {/* GOOGLE LOGIN */}
         <motion.button
           whileHover={{ scale: 1.02 }}
           style={styles.googleBtn}
