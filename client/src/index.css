@@ -5,9 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden; /* 🔥 FIX 1: horizontal scroll hatao */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 🔥 GLOBAL RESPONSIVE FIX START */
+
+/* sab elements properly resize ho */
+* {
+  box-sizing: border-box;
+}
+
+/* images aur media overflow na kare */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* sab div mobile mein cut na ho */
+div {
+  max-width: 100%;
+}
+
+/* inputs bhi overflow na kare */
+input, button {
+  max-width: 100%;
+}
+
+/* 🔥 GLOBAL RESPONSIVE FIX END */
