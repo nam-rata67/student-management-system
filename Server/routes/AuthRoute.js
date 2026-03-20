@@ -17,6 +17,14 @@ router.get(
   passport.authenticate("google", { session: false }),
   (req, res) => {
     try {
+
+      // 🔥 ADD THIS BLOCK (approval check)
+      if (req.user.status !== "approved") {
+        return res.redirect(
+          `${process.env.CLIENT_URL}/login?error=not_approved`
+        );
+      }
+
       const token = jwt.sign(
         {
           id: req.user._id,
