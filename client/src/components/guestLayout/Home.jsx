@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
@@ -6,113 +7,35 @@ export default function Home() {
   const navigate = useNavigate();
   const learnMoreRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  // Detect window resize for responsive design
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
-    setTimeout(() => setLoaded(true), 800);
+    setTimeout(() => setLoaded(true), 800); // Slight delay for smoothness
   }, []);
 
   return (
     <div style={styles.page}>
-      {/* ================= MOBILE 3-DOTS MENU ================= */}
-      {isMobile && (
-        <div style={{ position: "fixed", top: 20, right: 20, zIndex: 100 }}>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            style={{
-              background: "#38bdf8",
-              color: "#121212",
-              border: "none",
-              padding: "12px",
-              borderRadius: "50%",
-              fontSize: 24,
-              cursor: "pointer",
-            }}
-          >
-            ⋮
-          </button>
-          {menuOpen && (
-            <div
-              style={{
-                position: "fixed",
-                top: 70,
-                right: 20,
-                width: 200,
-                maxHeight: "80vh",
-                overflowY: "auto",
-                background: "rgba(255,255,255,0.1)",
-                backdropFilter: "blur(10px)",
-                borderRadius: 10,
-                padding: 20,
-                zIndex: 99,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-              }}
-            >
-              <ul style={{ display: "flex", flexDirection: "column", gap: 15 }}>
-                <li style={{ cursor: "pointer" }} onClick={() => navigate("/")}>Home</li>
-                <li style={{ cursor: "pointer" }} onClick={() => navigate("/register")}>Register</li>
-                <li style={{ cursor: "pointer" }} onClick={() => navigate("/about")}>About</li>
-                <li style={{ cursor: "pointer" }} onClick={() => navigate("/contact")}>Contact</li>
-                <li style={{ cursor: "pointer" }} onClick={() => navigate("/profile")}>Profile</li>
-                <li style={{ cursor: "pointer" }} onClick={() => setMenuOpen(false)}>Close Menu</li>
-              </ul>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* ================= HERO ================= */}
-      <section
-        style={{
-          ...styles.hero,
-          padding: isMobile ? "60px 20px" : "100px 120px",
-          gap: isMobile ? 20 : 60,
-        }}
-      >
+      <section style={styles.hero}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
           transition={{ duration: 1.2 }}
-          style={{ ...styles.heroLeft, minWidth: isMobile ? "100%" : 320 }}
+          style={styles.heroLeft}
         >
-          <h1
-            style={{
-              ...styles.title,
-              fontSize: isMobile ? 28 : 56,
-            }}
-          >
-            Student Management System
-          </h1>
-          <p
-            style={{
-              ...styles.subtitle,
-              fontSize: isMobile ? 16 : 20,
-            }}
-          >
+          <h1 style={styles.title}>Student Management System</h1>
+          <p style={styles.subtitle}>
             A scalable and secure platform designed for educational institutions with a modern user interface.
           </p>
 
-          <div
-            style={{
-              ...styles.btnGroup,
-              flexDirection: isMobile ? "column" : "row",
-              gap: 15,
-            }}
-          >
+          <div style={styles.btnGroup}>
             <button style={styles.primaryBtn} onClick={() => navigate("/register")}>
               Get Started
             </button>
             <button
               style={styles.secondaryBtn}
-              onClick={() => learnMoreRef.current?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                learnMoreRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Learn More
             </button>
@@ -123,12 +46,12 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: loaded ? 1 : 0, scale: loaded ? 1 : 0.9 }}
           transition={{ duration: 1.2 }}
-          style={{ ...styles.heroRight, textAlign: isMobile ? "center" : "center" }}
+          style={styles.heroRight}
         >
           <motion.img
             src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80"
             alt="Students"
-            style={{ ...styles.heroImg, maxWidth: isMobile ? "100%" : 520 }}
+            style={styles.heroImg}
             animate={{ y: [0, -20, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
           />
@@ -136,20 +59,8 @@ export default function Home() {
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section
-        style={{
-          ...styles.section,
-          padding: isMobile ? "60px 20px" : "80px 120px",
-        }}
-      >
-        <h2
-          style={{
-            ...styles.sectionTitle,
-            fontSize: isMobile ? 24 : 36,
-          }}
-        >
-          Key Features
-        </h2>
+      <section style={styles.section}>
+        <h2 style={styles.sectionTitle}>Key Features</h2>
 
         <div style={styles.grid}>
           {features.map((f, i) => (
@@ -172,27 +83,9 @@ export default function Home() {
       </section>
 
       {/* ================= ABOUT ================= */}
-      <section
-        ref={learnMoreRef}
-        style={{
-          ...styles.about,
-          padding: isMobile ? "60px 20px" : "80px 120px",
-        }}
-      >
-        <h2
-          style={{
-            ...styles.sectionTitle,
-            fontSize: isMobile ? 24 : 36,
-          }}
-        >
-          About This Project
-        </h2>
-        <p
-          style={{
-            ...styles.aboutText,
-            fontSize: isMobile ? 16 : 18,
-          }}
-        >
+      <section ref={learnMoreRef} style={styles.about}>
+        <h2 style={styles.sectionTitle}>About This Project</h2>
+        <p style={styles.aboutText}>
           Built using the latest technologies to provide a seamless experience for students, admins, and academic management.
         </p>
 
@@ -227,52 +120,53 @@ export default function Home() {
 const styles = {
   page: {
     minHeight: "100vh",
-    background: "#121212",
+    background: "#121212", // Dark, sleek background for a modern feel
     color: "#fff",
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: "'Poppins', sans-serif", // Clean and professional font
     overflowX: "hidden",
   },
 
   hero: {
     display: "flex",
     gap: 60,
+    padding: "100px 120px",
     alignItems: "center",
     flexWrap: "wrap",
   },
 
   heroLeft: { flex: 1, minWidth: 320 },
-  heroRight: { flex: 1 },
+  heroRight: { flex: 1, textAlign: "center" },
 
   title: {
     fontSize: 56,
     fontWeight: 900,
     lineHeight: 1.2,
     marginBottom: 20,
-    color: "#38bdf8",
+    color: "#38bdf8", // Vibrant blue accent for the title
     letterSpacing: "2px",
   },
 
   subtitle: {
     fontSize: 20,
     lineHeight: 1.6,
-    color: "#d1d5db",
+    color: "#d1d5db", // Light gray text for contrast
     marginBottom: 30,
     fontWeight: "lighter",
-    textShadow: "2px 2px 10px rgba(0,0,0,0.3)",
+    textShadow: "2px 2px 10px rgba(0, 0, 0, 0.3)", // Subtle shadow for better visibility
   },
 
   btnGroup: { display: "flex", gap: 20 },
 
   primaryBtn: {
     padding: "18px 36px",
-    background: "#38bdf8",
+    background: "#38bdf8", // Bright blue accent
     border: "none",
     borderRadius: 35,
     fontWeight: 700,
     cursor: "pointer",
     color: "#121212",
     transition: "all 0.3s ease",
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
     fontSize: "18px",
   },
 
@@ -285,7 +179,7 @@ const styles = {
     cursor: "pointer",
     color: "#38bdf8",
     transition: "all 0.3s ease",
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
     fontSize: "18px",
   },
 
@@ -293,7 +187,7 @@ const styles = {
     width: "100%",
     maxWidth: 520,
     borderRadius: "12px",
-    boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
+    boxShadow: "0 25px 50px rgba(0, 0, 0, 0.2)",
   },
 
   section: {
@@ -305,23 +199,23 @@ const styles = {
     fontWeight: 700,
     marginBottom: 40,
     textAlign: "center",
-    color: "#38bdf8",
+    color: "#38bdf8", // Accent color for section titles
   },
 
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: 30,
   },
 
   card: {
-    background: "rgba(255, 255, 255, 0.05)",
+    background: "rgba(255, 255, 255, 0.05)", // Slightly transparent background
     backdropFilter: "blur(20px)",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     padding: 28,
     borderRadius: 12,
     transition: "all 0.3s ease-in-out",
-    boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+    boxShadow: "0 15px 30px rgba(0, 0, 0, 0.1)",
   },
 
   cardTitle: { fontSize: 22, marginBottom: 10, color: "#38bdf8" },
@@ -329,7 +223,7 @@ const styles = {
 
   about: {
     padding: "80px 120px",
-    background: "rgba(255,255,255,0.05)",
+    background: "rgba(255, 255, 255, 0.05)",
     borderRadius: 15,
   },
 
@@ -351,10 +245,10 @@ const styles = {
   },
 
   aboutCard: {
-    background: "rgba(255,255,255,0.1)",
+    background: "rgba(255, 255, 255, 0.1)",
     borderRadius: 10,
     padding: 30,
-    border: "1px solid rgba(255,255,255,0.2)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
   },
 };
 
@@ -367,4 +261,4 @@ const features = [
   { title: "Academic Records", desc: "Efficient management of student academic data." },
   { title: "MERN Stack", desc: "Built using MongoDB, Express, React, and Node.js for a scalable solution." },
   { title: "Scalable Design", desc: "Easily adaptable for future features and growth." },
-];
+];  
